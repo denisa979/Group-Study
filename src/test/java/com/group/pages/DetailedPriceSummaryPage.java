@@ -69,70 +69,53 @@ public class DetailedPriceSummaryPage extends BasePage{
     @FindBy(css = "input#mat-input-7")
     public WebElement parentPhone;
 
-    @FindBy(xpath = "//span[text()='2']")
-    public WebElement secondPageTwoNumberBlue;
-
     @FindBy(xpath = "//p[text()='Choose a payment plan']")
     public WebElement choosePaymentPlan;
 
-    @FindBy(xpath = "(//span[@class='payment-type'])[1]")
+    @FindBy(xpath = "//span[@class='payment-type']")
     public WebElement upfrontAccordion;
 
-    @FindBy(xpath = "(//span[text()='Base price'])[1]")
+    @FindBy(xpath = "(//span[@class='price'])[1]")
     public WebElement upfrontBasePrice;
 
-    @FindBy(xpath = "(//span[@class='price'])[1]")
-    public WebElement upfrontBaseAmount;
-
-    @FindBy(xpath = "//span[text()='Upfront discount']")
-    public WebElement upfrontDiscount;
+    @FindBy(xpath = "//span[@class='discount-price']")
+    public WebElement upfrontDiscountTotalPrice;
 
     @FindBy(xpath = "(//span[@class='price'])[2]")
-    public WebElement upfrontDiscountAmount;
+    public WebElement upfrontDiscount;
 
-    @FindBy(xpath = "//span[text()='Subtotal']")
-    public WebElement subtotalUpfront;
-
-    @FindBy(xpath = "(//span[@class='price'])[3]")
-    public WebElement subtotalUpfrontAmount;
-
-    @FindBy(xpath = "(//i[@class='excluding-fee'])[1]")
+    @FindBy(xpath = "//i[text()='excluding fees']")
     public WebElement excludingFeesUpfront;
+
+
+
+    @FindBy(xpath = "//span[@class='mat-content ng-tns-c1676997785-9 mat-content-hide-toggle']")
+    public WebElement installmentBox;
 
     @FindBy(xpath = "(//span[@class='payment-type'])[2]")
     public WebElement installmentsAccordion;
 
-    @FindBy(xpath = "(//span[text()='Base price'])[2]")
-    public WebElement installmentBasePrice;
-
-    @FindBy(xpath = "(//span[@class='price'])[3]")
-    public WebElement installmentBaseAmount;
-
-    @FindBy(xpath = "//span[text()='Installments']")
-    public WebElement installmentsPlan;
-
-    @FindBy(xpath = "(//span[@class='price'])[4]")
+    @FindBy(xpath = "//div[@class='content-panel-item ng-star-inserted']/span[contains(text(), 'Installments')]/following-sibling::span")
     public WebElement installmentsNumber;
 
-    @FindBy(xpath = "//span[text()='Price per installment']")
-    public WebElement pricePerInstallment;
-
-    @FindBy(xpath = "(//span[@class='price'])[5]")
-    public WebElement amountPerInstallment;
-
-    @FindBy(xpath = "//span[@class='sub-item-panel ng-star-inserted']")
-    public WebElement dueToday;
-
-    @FindBy(xpath = "//div[@class='fee-items-holder']/span[contains(text(), 'First month')]")
-    public WebElement firstMonthsPay;
-
-    @FindBy(xpath = "(//span[@class='price'])[6]")
-    public WebElement firstMonthsAmount;
+    @FindBy(xpath = "(//span[@class='price'])[1]")
+    public WebElement installmentBaseAmount;
 
     @FindBy(xpath = "(//i[@class='excluding-fee'])[1]")
     public WebElement excludingFeesInstallmentsPlan;
 
+    public int getUpfrontBasePrice(){
+        String value = upfrontBasePrice.getText();
+        return Integer.parseInt(value);
+    }
 
+    public int getInstallmentBaseAmount() {
+        String value = installmentBaseAmount.getText();
+        return Integer.parseInt(value);
 
-
+    }
+    public int getNumberOfInstalments() {
+        String value = installmentsNumber.getText();
+        return Integer.parseInt(value);
+    }
 }
